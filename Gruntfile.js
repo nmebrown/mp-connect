@@ -5,6 +5,19 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
+        // Copy Task
+        // default: Copies over HTML, static assets to dist
+        copy: {
+            default: {
+                files: [{
+                    expand: true,
+                    flatten: true,
+                    src: 'src/*.html',
+                    dest: 'dist/'
+                }]
+            }
+        },
+
         // sass Task
         // default: Convert SCSS to CSS
         // dist:  Convert SCSS to CSS and compress the output
@@ -14,12 +27,12 @@ module.exports = function(grunt) {
             },
             src: {
                 files: {
-                    'assets/main.css': 'assets/main.scss'
+                    'dist/styles/main.css': 'src/styles/main.scss'
                 },
             },
             dist: {
                 files: {
-                    'assets/main.css': 'assets/main.scss'
+                    'dist/styles/main.css': 'src/styles/main.scss'
                 },
                 outputStyle: 'compressed'
             }
@@ -30,7 +43,7 @@ module.exports = function(grunt) {
         uglify: {
             dist: {
                 files: {
-                    'assets/main.min.js': 'assets/main.js',
+                    'dist/scripts/main.min.js': 'src/scripts/main.js',
                 }
             }
         },
@@ -41,9 +54,9 @@ module.exports = function(grunt) {
             default: {
                 files: [{
                     expand: true,
-                    cwd: 'assets/',
+                    cwd: 'src/images/',
                     src: ['**/*.{png,jpg,gif,ico}'],
-                    dest: 'assets/'
+                    dest: 'dist/images/'
                 }]
             }
         },
@@ -64,9 +77,9 @@ module.exports = function(grunt) {
             default: {
                 files: [{
                     expand: true,
-                    cwd: 'assets/',
+                    cwd: 'src/images/',
                     src: ['**/*.svg'],
-                    dest: 'assets/'
+                    dest: 'dist/images/'
                 }]
             }
         },
@@ -98,6 +111,7 @@ module.exports = function(grunt) {
     // Compiles the code for the designated distribution target
     grunt.registerTask('build', function() {
         grunt.task.run([
+            'newer:copy',
             'newer:sass:src',
             'newer:uglify',
             'newer:imagemin',
@@ -119,6 +133,7 @@ module.exports = function(grunt) {
     // Compiles the code for the designated distribution target
     grunt.registerTask('dist', function() {
         grunt.task.run([
+            'copy',
             'sass:dist',
             'uglify',
             'imagemin',
