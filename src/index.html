@@ -1,0 +1,75 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>Connect with your MP</title>
+    <meta name="description" content="A single page application to support connecting constituents with their elected representatives.">
+    <meta name="author" content="Cole Brown">
+
+    <link rel="stylesheet" href="main.css">
+    <meta name="theme-color" content="">
+</head>
+
+<body>
+    <header role="banner" class="header">
+        <nav role="navigation" class="nav nav--breadcrumbs">
+            <ol>
+                <li>Step one</li>
+                <li>Step two</li>
+            </ol>
+        </nav>
+    </header>
+
+    <main role="main" class="main">
+        <h1>Connet with your MP</h1>
+
+        <section class="page-section page-section--form">
+            <form>
+                <label for="first_name">First name</label>
+                <input type="text" id="first_name" name="first_name">
+
+                <label for="last_name">Last name</label>
+                <input type="text" id="last_name" name="last_name">
+
+                <label for="email">Email address</label>
+                <input type="email" id="email" name="email">
+
+                <label for="postal_code">Postal code</label>
+                <input type="text" id="postal_code" name="postal_code">
+
+                <input type="submit" value="Connect" class="btn btn--primary">
+
+            </form>
+        </section>
+
+        <section class="page-section page-section--contact">
+            <div class="card card--representative" itemscope itemtype="https://schema.org/Person">
+                <img src="{{ image }}" itemprop="image" alt="Official portrait for {{ full_name }}">
+
+                <dl>
+                    <dt>Name</dt>
+                    <dd itemprop="name">{{ full_name }}</dd>
+                    <dt>Riding</dt>
+                    <dd itemprop="workLocation">{{ riding_location }}</dd>
+                    <dt>Party</dt>
+                    <dd itemprop="memberOf">{{ party_affiliation }}</dd>
+                </dl>
+
+                <a href="mailto:{{ email_address }}" class="btn btn--primary">Email your MP</a>
+                <a href="tel:{{ phone_number }}" class="btn">Email your MP</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Copyright 2021</p>
+    </footer>
+
+    <script src="main.min.js"></script>
+</body>
+</html>
