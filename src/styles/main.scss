@@ -5,12 +5,13 @@
 
 // Tools
 @import './tools/variables';
+@import './tools/functions';
 @import './tools/mixins';
 @import './tools/helpers';
 
 // Core
 @import './core/grid';
-// @import './core/typography';
+@import './core/typography';
 // @import './core/forms';
 // @import './core/button/button';
 // @import './core/button/button--text';

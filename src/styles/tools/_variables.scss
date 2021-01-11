@@ -15,9 +15,17 @@
 
 // Universal Colors
 $black: #000;
+$grey: #999;
 $white: #fff;
 
 // Theme Colors
+$primary-color: $black;
+$secondary-color: $white;
+
+$text-color: $black;
+$text-color-contrast: $white;
+$text-color-disabled: $grey;
+
 
 // -------------------------------------
 //  Media Query Breakpoints
@@ -29,6 +37,10 @@ $container--desktop: 1280px !default;
 $site-width: 1440px !default;
 
 
-// Spacing
 
+// -------------------------------------
+// Spacing
+// -------------------------------------
 $site-gutter: 20px;
+$section-gutter: ($site-gutter * 2) $site-gutter; // for padding value
+$paragraph-gutter: 0 0 20px !default; // for margin value

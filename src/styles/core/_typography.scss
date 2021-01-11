@@ -1,0 +1,153 @@
+// ----------------------------------------------------------------------------
+// Typography
+// ----------------------------------------------------------------------------
+//
+// Contains all site-wide typography styles. All base level HTML typographical
+// elements are styled here first, with mixins and variables to help with
+// granular includes at the component level.
+//
+// ----------------------------------------------------------------------------
+
+// -------------------------------------
+// Font Family Variables
+// -------------------------------------
+$font--primary: 'Lato', Tahoma, sans-serif;
+$font--header: 'Roboto Slab', Georgia, serif;
+
+
+
+// -------------------------------------
+// Typography Mixins
+// -------------------------------------
+// Default font mixin
+// This makes no assumption about sizes
+@mixin font-default {
+    font-family: $font--primary;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.625;
+}
+
+// Header font mixin
+// This makes no assumption about sizes
+@mixin font-header {
+    font-family: $font--header;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+
+
+// -------------------------------------
+// Base Styles
+// -------------------------------------
+body {
+    @include font-default;
+    @include font-size(16);
+}
+
+body,
+input,
+textarea,
+button,
+select {
+    -webkit-font-smoothing: antialiased;
+    text-size-adjust: 100%;
+}
+
+p {
+    margin: $paragraph-gutter;
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+a {
+    color: $primary-color;
+
+    &:hover {
+        color: rgba($primary-color, .7);
+    }
+
+    &:focus {
+        color: inherit;
+    }
+}
+
+small {
+    font-size: 80%;
+}
+
+// Lists
+ul,
+ol,
+dl {
+    margin: $paragraph-gutter;
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+// -------------------------------------
+// Headings
+// -------------------------------------
+@include headings(1, 6) {
+    @include font-header;
+}
+
+h1,
+.h1 {
+    @include font-size(42);
+
+    @include bp(laptop) {
+        @include font-size(60);
+    }
+}
+
+h2,
+.h2 {
+    @include font-size(36);
+
+    @include bp(laptop) {
+        @include font-size(42);
+    }
+}
+
+h3,
+.h3 {
+    @include font-size(30);
+
+    @include bp(laptop) {
+        @include font-size(36);
+    }
+}
+
+h4,
+.h4 {
+    @include font-size(24);
+
+    @include bp(laptop) {
+        @include font-size(30);
+    }
+}
+
+h5,
+.h5 {
+    @include font-size(20);
+
+    @include bp(laptop) {
+        @include font-size(24);
+    }
+}
+
+h6,
+.h6 {
+    @include font-size(18);
+
+    @include bp(laptop) {
+        @include font-size(20);
+    }
+}
