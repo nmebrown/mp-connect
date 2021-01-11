@@ -1,0 +1,72 @@
+// ----------------------------------------------------------------------------
+// Button
+// ----------------------------------------------------------------------------
+//
+// Default button styles to be included in various components.
+//
+// ----------------------------------------------------------------------------
+
+// -------------------------------------
+// Default Button Styles
+// -------------------------------------
+button,
+.btn {
+    appearance: none;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1;
+    text-decoration: none;
+    user-select: none;
+    white-space: nowrap;
+
+    // Customizations
+    @include font-size(18);
+    border-radius: 3px;
+    font-weight: 700;
+    padding: 12px 20px;
+
+    // Disabled Styles live here because they override everything
+    &.btn--disabled,
+    &:disabled {
+        background-color: map-get($button-color--disabled, color);
+        color: map-get($button-color--disabled, contrast);
+        cursor: default;
+
+        &:hover,
+        a:hover & {
+            background-color: map-get($button-color--disabled, color);
+            color: map-get($button-color--disabled, contrast);
+            border-color: transparent;
+        }
+    }
+}
+
+
+// -------------------------------------
+// Default Colors & Sizes
+// -------------------------------------
+@each $color-name, $color-set in $button-color-palette {
+    .btn--#{$color-name} {
+        background-color: map-get($color-set, background);
+        border: 2px solid transparent;
+        color: map-get($color-set, color);
+
+        &:hover,
+        &:active,
+        a:hover & {
+            background-color: transparent;
+            border: 2px solid map-get($color-set, background);
+            color: map-get($color-set, contrast);
+        }
+    }
+
+    .link--#{$color-name} {
+        color: map-get($color-set, color);
+
+        &:hover,
+        a:hover & {
+            color: darken(map-get($color-set, color), .2);
+        }
+    }
+}

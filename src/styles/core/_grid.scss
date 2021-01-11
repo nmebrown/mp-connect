@@ -1,3 +1,30 @@
+// ----------------------------------------------------------------------------
+// Layout & Site Grid
+// ----------------------------------------------------------------------------
+//
+// Global grid modifications and base container maximums.
+//
+// ----------------------------------------------------------------------------
+
+// -------------------------------------
+// Base Layout declarations
+// -------------------------------------
+@-ms-viewport{
+    width: device-width;
+}
+
+html {
+  background-color: $background-color--site;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
 // Main Grid
 // -------------------------------------
 .site-layout {
@@ -9,7 +36,7 @@
     @supports (display:grid) {
         display: grid;
         grid-template-columns: [full-start] minmax((#{$site-gutter} / 2), 1fr) [main-start] minmax(0, #{$site-width}) [main-end] minmax((#{$site-gutter} / 2), 1fr) [full-end];
-        grid-template-rows: minmax(auto, 200px) 1fr minmax(auto, 200px);
+        grid-template-rows: minmax(200px, auto) 1fr minmax(200px, auto);
         max-width: initial;
         width: 100%;
     }
@@ -21,6 +48,18 @@
     // All content defaults to one column
     > * {
         grid-column: main;
+    }
+
+    header {
+        align-self: end;
+    }
+
+    main {
+        align-self: stretch;
+    }
+
+    footer {
+        align-self: start;
     }
 }
 
@@ -35,14 +74,6 @@
     width: calc(100% - #{$site-gutter});
 }
 
-@mixin container--wysiwyg {
-    @include container;
-
-    @include bp(laptop) {
-        width: calc(60% - (#{$site-gutter} * 2));
-    }
-}
-
 .container {
     @include container;
 }
@@ -50,15 +81,15 @@
 
 // Page section default styles
 .page-section {
-    padding: $site-gutter;
+    padding: $site-gutter ($site-gutter / 2);
 
     @include bp(laptop) {
-        padding: ($site-gutter * 2);
+        padding: ($site-gutter * 2) $site-gutter;
     }
 }
 
 .page-section--header {
-    padding-bottom: 0;
+
 }
 
 
@@ -66,18 +97,7 @@
 // -------------------------------------
 // Theme styles
 // -------------------------------------
-body {
-    background-color: $background-color--site;
-}
-
-header {
-    align-self: end;
-}
-
-main {
+.main {
     background-color: $background-color;
-}
-
-footer {
-    align-self: start;
+    border-radius: 5px;
 }

@@ -20,17 +20,50 @@ $light-grey: #eee;
 $white: #fff;
 
 // Theme Colors
-$primary-color: $black;
-$secondary-color: $white;
+$ice-blue: #e0edef;
+$powder-blue: #a8dadc;
+$celadon-blue: #457b9d;
+$prussian-blue: #1d3557;
+$canada-red: #e63946;
 
-$text-color: $black;
+$primary-color: $celadon-blue;
+$secondary-color: $canada-red;
+$contrast-color: $white;
+
+$text-color: $prussian-blue;
 $text-color--contrast: $white;
 $text-color--disabled: $grey;
 
 $background-color: $white;
-$background-color--site: $light-grey;
-$background-color--contrast: $black;
+$background-color--site: $ice-blue;
+$background-color--contrast: $prussian-blue;
 $background-color--disabled: $light-grey;
+
+
+// Button Colour Palettes
+$button-color-palette: (
+    primary: (
+        background: $primary-color,
+        color: $white,
+        contrast: $primary-color
+    ),
+    secondary: (
+        background: $secondary-color,
+        color: $white,
+        contrast: $secondary-color
+    ),
+    white: (
+        background: $white,
+        color: $text-color,
+        contrast: $text-color
+    )
+);
+
+$button-color--disabled: (
+    background: $background-color--disabled,
+    color: $text-color--disabled
+);
+
 
 
 // -------------------------------------

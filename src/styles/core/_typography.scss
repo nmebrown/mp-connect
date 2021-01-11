@@ -60,6 +60,7 @@ button,
 select {
     -webkit-font-smoothing: antialiased;
     text-size-adjust: 100%;
+    color: $text-color;
 }
 
 p {
@@ -67,6 +68,10 @@ p {
 
     &:last-of-type {
         margin-bottom: 0;
+    }
+
+    &.lead {
+        font-size: 120%;
     }
 }
 
@@ -102,6 +107,7 @@ dl {
 // -------------------------------------
 @include headings(1, 6) {
     @include font-header;
+    color: $text-color;
 }
 
 h1,

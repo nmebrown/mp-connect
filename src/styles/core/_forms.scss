@@ -95,19 +95,18 @@ option {
     margin: ($site-gutter / 2) 0;
 }
 
-
 .form__label {
     @include font-size(18);
     display: block;
     font-weight: 700;
-    margin: 0 0 ($paragraph-gutter / 2);
+    margin: 0 0 10px;
 }
 
 .form__input,
 .form__textarea {
     @include font-size(16);
     border-radius: 3px;
-    margin: 0 0 ($paragraph-gutter / 2);
+    margin: 0 0 10px;
     padding: 10px 15px;
     width: 100%;
 
