@@ -35,10 +35,22 @@ html {
 
     @supports (display:grid) {
         display: grid;
-        grid-template-columns: [full-start] minmax((#{$site-gutter} / 2), 1fr) [main-start] minmax(0, #{$site-width}) [main-end] minmax((#{$site-gutter} / 2), 1fr) [full-end];
+        grid-template-columns: [full-start] minmax(20px, 1fr) [main-start] minmax(0, #{$site-width}) [main-end] minmax(20px, 1fr) [full-end];
         grid-template-rows: auto 1fr auto;
         max-width: initial;
         width: 100%;
+    }
+
+    @supports (display:grid) {
+        display: grid;
+        grid-template-columns: [full-start] 0 [main-start] minmax(0, #{$site-width}) [main-end] 0 [full-end];
+        grid-template-rows: auto 1fr auto;
+        max-width: initial;
+        width: 100%;
+    }
+
+    @include bp(tablet) {
+        grid-template-columns: [full-start] minmax(20px, 1fr) [main-start] minmax(0, #{$site-width}) [main-end] minmax(20px, 1fr) [full-end];
     }
 
     @include bp(laptop) {
