@@ -1,7 +1,84 @@
 // ----------------------------------------------------------------------------
-// Card
+// Cards - Representative
 // ----------------------------------------------------------------------------
 //
 // Representative card component.
 //
 // ----------------------------------------------------------------------------
+.card--representative {
+    display: grid;
+    grid-template-areas:
+        "main image"
+        "main image"
+        "footer footer";
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: repeat(3, auto);
+    width: 100%;
+
+    @include bp(laptop) {
+        display: grid;
+        grid-template-areas:
+            "main main image"
+            "main main image"
+            "footer footer footer";
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, auto);
+    }
+
+    // Template values related to the grid only
+    .card__image {
+        grid-area: image;
+    }
+
+    .card__content {
+        grid-area: main;
+    }
+
+    .card__actions {
+        grid-area: footer;
+    }
+}
+
+
+.card__image {
+    max-width: 120px;
+
+    @include bp(laptop) {
+        max-width: 100%;
+    }
+}
+
+.card__content {
+    dl {
+        @include font-size(18);
+    }
+
+    dt {
+        font-weight: 700;
+
+        &::after {
+            content: ": ";
+        }
+    }
+
+    dd {
+        flex: 0 1 100%;
+        margin: 0 0 10px;
+
+        @include bp(laptop) {
+            margin: 0 0 20px;
+        }
+    }
+}
+
+.card__actions {
+    border-top: 2px solid $border-color;
+    margin-top: ($site-gutter / 2);
+    padding: ($site-gutter / 4) 0;
+
+    @include bp(laptop) {
+        margin-top: $site-gutter;
+        padding: ($site-gutter / 2) 0;
+    }
+}
+

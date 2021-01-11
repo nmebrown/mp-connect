@@ -8,6 +8,11 @@ $(document).ready(function(){
         var source = document.getElementById("representative-card").innerHTML;
         var template = Handlebars.compile(source);
 
+        // Capture name for personalizations
+        if ($('form').find('#first_name').val().length != 0){
+            var user = ' ' + $('form').find('#first_name').val();
+        }
+
         // Capture postal code for API lookup
         var postal_code = $('form').find('#postal_code').val();
 
@@ -29,6 +34,7 @@ $(document).ready(function(){
 
                     if (representative.representative_set_name == "House of Commons") {
                         template_data = {
+                            user: user,
                             full_name: representative.name,
                             email_address: representative.email,
                             phone_number: representative.email, // which phone number?
@@ -40,8 +46,11 @@ $(document).ready(function(){
                     }
                 }
 
-                // Render the Handlebars template with the rep data
-                $('.js-form-response').html(template(template_data));
+                // Render the Handlebars template with the rep data and show
+                $('.js-form-response').html(template(template_data)).removeClass('hidden');
+
+                // Hide form
+                $('.page-section--form').addClass('hidden');
             }
         });
     });

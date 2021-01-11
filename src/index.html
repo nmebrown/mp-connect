@@ -28,8 +28,8 @@
         </header>
 
         <main role="main" class="main">
-            <section class="page-section page-section--form">
-                <h2 class="page-section__title">Your information</h2>
+            <section class="page-section page-section--content page-section--form">
+                <h2 class="page-section__title">What's your information?</h2>
 
                 <form class="form">
                     <div class="form__item">
@@ -52,17 +52,16 @@
                         <input type="text" id="postal_code" name="postal_code" placeholder="K1A 0A6" class="form__input">
                     </div>
 
-                    <input type="submit" value="Connect" class="btn btn--primary">
+                    <input type="submit" value="Connect now" class="btn btn--primary">
                 </form>
             </section>
 
-            <section class="page-section page-section--contact js-form-response">
-                <h2 class="page-section__title">Your representative</h2>
+            <section class="page-section page-section--content page-section--contact js-form-response hidden">
             </section>
         </main>
 
         <footer>
-            <small>Copyright 2021</small>
+            <small>Copyright © 2021</small>
         </footer>
     </div>
 
@@ -71,20 +70,25 @@
     <script src="scripts/main.min.js"></script>
 
     <script id="representative-card" type="text/x-handlebars-template">
+        <h2 class="page-section__title">Thanks{{ user }}! Here's your representative</h2>
         <div class="card card--representative" itemscope itemtype="https://schema.org/Person">
-            <img src="{{ image }}" itemprop="image" alt="Official portrait for {{ full_name }}">
+            <img src="{{ image }}" itemprop="image" alt="Official portrait for {{ full_name }}" class="card__image">
 
-            <dl>
-                <dt>Name</dt>
-                <dd itemprop="name">{{ full_name }}</dd>
-                <dt>Riding</dt>
-                <dd itemprop="workLocation">{{ riding_location }}</dd>
-                <dt>Party</dt>
-                <dd itemprop="memberOf">{{ party_affiliation }}</dd>
-            </dl>
+            <div class="card__content">
+                <dl>
+                    <dt>Name</dt>
+                    <dd itemprop="name">{{ full_name }}</dd>
+                    <dt>Riding</dt>
+                    <dd itemprop="workLocation">{{ riding_location }}</dd>
+                    <dt>Party</dt>
+                    <dd itemprop="memberOf">{{ party_affiliation }}</dd>
+                </dl>
+            </div>
 
-            <a href="mailto:{{ email_address }}" class="btn btn--primary">Email your MP</a>
-            <a href="tel:{{ phone_number }}" class="btn">Email your MP</a>
+            <div class="card__actions">
+                <a href="mailto:{{ email_address }}&cc={{ user_email }}?subject=Constituent%20feeback" class="btn btn--primary">Email your MP</a>
+                <a href="tel:{{ phone_number }}" class="btn btn--secondary">Phone your MP</a>
+            </div>
         </div>
     </script>
 </body>

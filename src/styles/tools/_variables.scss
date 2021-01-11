@@ -39,18 +39,21 @@ $background-color--site: $ice-blue;
 $background-color--contrast: $prussian-blue;
 $background-color--disabled: $light-grey;
 
+$border-color: $celadon-blue;
+$border-color--light: $light-grey;
+
 
 // Button Colour Palettes
 $button-color-palette: (
     primary: (
-        background: $primary-color,
-        color: $white,
-        contrast: $primary-color
-    ),
-    secondary: (
         background: $secondary-color,
         color: $white,
         contrast: $secondary-color
+    ),
+    secondary: (
+        background: $primary-color,
+        color: $white,
+        contrast: $primary-color
     ),
     white: (
         background: $white,
@@ -63,6 +66,13 @@ $button-color--disabled: (
     background: $background-color--disabled,
     color: $text-color--disabled
 );
+
+
+// -------------------------------------
+//  Default Transitions
+//  property name | duration | timing function | delay
+// -------------------------------------
+$anim: all .2s ease !default;
 
 
 

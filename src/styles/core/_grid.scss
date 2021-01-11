@@ -36,7 +36,7 @@ html {
     @supports (display:grid) {
         display: grid;
         grid-template-columns: [full-start] minmax((#{$site-gutter} / 2), 1fr) [main-start] minmax(0, #{$site-width}) [main-end] minmax((#{$site-gutter} / 2), 1fr) [full-end];
-        grid-template-rows: minmax(200px, auto) 1fr minmax(200px, auto);
+        grid-template-rows: auto 1fr auto;
         max-width: initial;
         width: 100%;
     }
@@ -79,7 +79,10 @@ html {
 }
 
 
-// Page section default styles
+
+// -------------------------------------
+// Theme styles
+// -------------------------------------
 .page-section {
     padding: $site-gutter ($site-gutter / 2);
 
@@ -96,12 +99,30 @@ html {
     }
 }
 
-
-
-// -------------------------------------
-// Theme styles
-// -------------------------------------
-.main {
+.page-section--content {
     background-color: $background-color;
     border-radius: 5px;
+}
+
+
+.page-section__title {
+    border-bottom: 2px solid $border-color;
+    margin-bottom: ($site-gutter / 2);
+
+    @include bp(laptop) {
+        border-bottom: 3px solid $border-color;
+        margin-bottom: $site-gutter;
+    }
+}
+
+// -------------------------------------
+// Interactive styles
+// -------------------------------------
+.page-section--form,
+.page-section--contact {
+    height: auto;
+
+    &.hidden {
+        height: 0px; // for animating
+    }
 }
