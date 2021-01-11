@@ -1,0 +1,117 @@
+// ----------------------------------------------------------------------------
+// Forms
+// ----------------------------------------------------------------------------
+//
+// Form field styling for base forms and common variants.
+//
+// ----------------------------------------------------------------------------
+
+// -------------------------------------
+// Default Elements
+// -------------------------------------
+form {
+    margin: 0;
+}
+
+a,
+area,
+button,
+[role='button'],
+input,
+label,
+select,
+summary,
+textarea {
+    touch-action: manipulation;
+}
+
+input,
+textarea,
+select {
+    border: 1px solid $light-grey;
+    appearance: none;
+    border-radius: 0;
+    max-width: 100%;
+    outline: none;
+    position: relative;
+
+    &[disabled] {
+        background-color: $background-color--disabled;
+        border-color: $text-color--disabled;
+        color: $text-color--disabled;
+        cursor: default;
+    }
+
+    // -------------------------------------
+    // Placeholders
+    // -------------------------------------
+    &::placeholder {
+        @include font-placeholder;
+    }
+
+    &:-moz-placeholder {
+        @include font-placeholder;
+    }
+
+    &:-ms-input-placeholder {
+        @include font-placeholder;
+    }
+
+    &::-ms-input-placeholder {
+        @include font-placeholder;
+    }
+
+    &::-webkit-input-placeholder {
+        @include font-placeholder;
+    }
+}
+
+button,
+input[type='submit'],
+label[for] {
+    cursor: pointer;
+}
+
+textarea {
+    min-height: 100px;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+// Force option color (affects IE only)
+option {
+    background-color: $background-color;
+    color: $text-color;
+}
+
+
+
+// -------------------------------------
+// Form Styles
+// -------------------------------------
+.form__item {
+    margin: ($site-gutter / 2) 0;
+}
+
+
+.form__label {
+    @include font-size(18);
+    display: block;
+    font-weight: 700;
+    margin: 0 0 ($paragraph-gutter / 2);
+}
+
+.form__input,
+.form__textarea {
+    @include font-size(16);
+    border-radius: 3px;
+    margin: 0 0 ($paragraph-gutter / 2);
+    padding: 10px 15px;
+    width: 100%;
+
+    &:focus {
+        border-color: $primary-color;
+    }
+}

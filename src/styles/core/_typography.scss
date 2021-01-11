@@ -37,7 +37,13 @@ $font--header: 'Roboto Slab', Georgia, serif;
     line-height: 1.2;
 }
 
-
+// Placeholder text mixin
+@mixin font-placeholder {
+    @include font-default;
+    @include font-size(16);
+    @include line-height(24);
+    color: rgba($text-color, .5);
+}
 
 // -------------------------------------
 // Base Styles

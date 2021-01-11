@@ -16,6 +16,7 @@
 // Universal Colors
 $black: #000;
 $grey: #999;
+$light-grey: #eee;
 $white: #fff;
 
 // Theme Colors
@@ -23,8 +24,13 @@ $primary-color: $black;
 $secondary-color: $white;
 
 $text-color: $black;
-$text-color-contrast: $white;
-$text-color-disabled: $grey;
+$text-color--contrast: $white;
+$text-color--disabled: $grey;
+
+$background-color: $white;
+$background-color--site: $light-grey;
+$background-color--contrast: $black;
+$background-color--disabled: $light-grey;
 
 
 // -------------------------------------
@@ -41,6 +47,6 @@ $site-width: 1440px !default;
 // -------------------------------------
 // Spacing
 // -------------------------------------
-$site-gutter: 20px;
+$site-gutter: 40px;
 $section-gutter: ($site-gutter * 2) $site-gutter; // for padding value
 $paragraph-gutter: 0 0 20px !default; // for margin value

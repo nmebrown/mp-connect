@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://code.jquery.com/">
 
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,700;1,300&family=Roboto+Slab:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Roboto+Slab:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
     <meta name="theme-color" content="">
 </head>
@@ -30,21 +30,32 @@
         </header>
 
         <main role="main" class="main">
-            <h1>Connect with your MP</h1>
+            <section class="page-section page-section--header">
+                <h1>Connect with your MP</h1>
+                <p>Connect with your political representatives on issues that matter to you.</p>
+            </section>
 
             <section class="page-section page-section--form">
-                <form>
-                    <label for="first_name">First name</label>
-                    <input type="text" id="first_name" name="first_name">
+                <form class="form">
+                    <div class="form__item">
+                        <label for="first_name" class="form__label">First name</label>
+                        <input type="text" id="first_name" name="first_name" placeholder="Jane" class="form__input">
+                    </div>
 
-                    <label for="last_name">Last name</label>
-                    <input type="text" id="last_name" name="last_name">
+                    <div class="form__item">
+                        <label for="last_name" class="form__label">Last name</label>
+                        <input type="text" id="last_name" name="last_name" placeholder="Smith" class="form__input">
+                    </div>
 
-                    <label for="email">Email address</label>
-                    <input type="email" id="email" name="email">
+                    <div class="form__item">
+                        <label for="email" class="form__label">Email address</label>
+                        <input type="email" id="email" name="email" placeholder="jane.smith@example.com" class="form__input">
+                    </div>
 
-                    <label for="postal_code">Postal code</label>
-                    <input type="text" id="postal_code" name="postal_code">
+                    <div class="form__item">
+                        <label for="postal_code" class="form__label">Postal code</label>
+                        <input type="text" id="postal_code" name="postal_code" placeholder="K1A 0A6" class="form__input">
+                    </div>
 
                     <input type="submit" value="Connect" class="btn btn--primary">
                 </form>
@@ -57,7 +68,7 @@
         </main>
 
         <footer>
-            <p>Copyright 2021</p>
+            <small>Copyright 2021</small>
         </footer>
     </div>
 

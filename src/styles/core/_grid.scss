@@ -9,7 +9,7 @@
     @supports (display:grid) {
         display: grid;
         grid-template-columns: [full-start] minmax((#{$site-gutter} / 2), 1fr) [main-start] minmax(0, #{$site-width}) [main-end] minmax((#{$site-gutter} / 2), 1fr) [full-end];
-        grid-template-rows: 1fr 2fr 1fr;
+        grid-template-rows: minmax(auto, 200px) 1fr minmax(auto, 200px);
         max-width: initial;
         width: 100%;
     }
@@ -25,6 +25,7 @@
 }
 
 
+// -------------------------------------
 // Container
 // -------------------------------------
 @mixin container {
@@ -49,9 +50,34 @@
 
 // Page section default styles
 .page-section {
-    padding: $site-gutter 0;
+    padding: $site-gutter;
 
     @include bp(laptop) {
-        padding: ($site-gutter * 2) 0;
+        padding: ($site-gutter * 2);
     }
+}
+
+.page-section--header {
+    padding-bottom: 0;
+}
+
+
+
+// -------------------------------------
+// Theme styles
+// -------------------------------------
+body {
+    background-color: $background-color--site;
+}
+
+header {
+    align-self: end;
+}
+
+main {
+    background-color: $background-color;
+}
+
+footer {
+    align-self: start;
 }
