@@ -95,7 +95,15 @@ html {
     padding: ($site-gutter / 2);
 
     @include bp(laptop) {
-        padding: ($site-gutter * 2) $site-gutter;
+        padding: ($site-gutter * 2) $site-gutter $site-gutter;
+    }
+}
+
+.page-section--footer {
+    padding: ($site-gutter / 2) ($site-gutter / 2) ($site-gutter / 4);
+
+    @include bp(laptop) {
+        padding: ($site-gutter / 2) $site-gutter;
     }
 }
 
@@ -104,7 +112,6 @@ html {
     border-radius: 5px;
 }
 
-
 .page-section__title {
     border-bottom: 2px solid $border-color;
     margin-bottom: ($site-gutter / 2);
@@ -112,17 +119,5 @@ html {
     @include bp(laptop) {
         border-bottom: 3px solid $border-color;
         margin-bottom: $site-gutter;
-    }
-}
-
-// -------------------------------------
-// Interactive styles
-// -------------------------------------
-.page-section--form,
-.page-section--contact {
-    height: auto;
-
-    &.hidden {
-        height: 0px; // for animating
     }
 }

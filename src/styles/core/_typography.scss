@@ -113,7 +113,7 @@ dl {
 
 h1,
 .h1 {
-    @include font-size(42);
+    @include font-size(36);
 
     @include bp(laptop) {
         @include font-size(60);
@@ -123,7 +123,7 @@ h1,
 
 h2,
 .h2 {
-    @include font-size(36);
+    @include font-size(30);
 
     @include bp(laptop) {
         @include font-size(42);
@@ -132,7 +132,7 @@ h2,
 
 h3,
 .h3 {
-    @include font-size(30);
+    @include font-size(24);
 
     @include bp(laptop) {
         @include font-size(36);
@@ -141,7 +141,7 @@ h3,
 
 h4,
 .h4 {
-    @include font-size(24);
+    @include font-size(20);
 
     @include bp(laptop) {
         @include font-size(30);
@@ -150,7 +150,7 @@ h4,
 
 h5,
 .h5 {
-    @include font-size(20);
+    @include font-size(18);
 
     @include bp(laptop) {
         @include font-size(24);
@@ -159,7 +159,7 @@ h5,
 
 h6,
 .h6 {
-    @include font-size(18);
+    @include font-size(16);
 
     @include bp(laptop) {
         @include font-size(20);

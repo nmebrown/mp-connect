@@ -25,7 +25,21 @@ button,
     border-radius: 3px;
     font-weight: 700;
     padding: 12px 20px;
+    text-align: center;
     transition: $anim;
+    width: 100%;
+
+    @include bp(laptop) {
+        width: auto;
+    }
+
+    & + .btn {
+        margin-top: ($site-gutter / 4);
+
+        @include bp(laptop) {
+            margin-left: ($site-gutter / 2);
+        }
+    }
 
     // Disabled Styles live here because they override everything
     &.btn--disabled,
@@ -40,10 +54,6 @@ button,
             color: map-get($button-color--disabled, contrast);
             border-color: transparent;
         }
-    }
-
-    & + .btn {
-        margin-left: ($site-gutter / 2);
     }
 }
 
