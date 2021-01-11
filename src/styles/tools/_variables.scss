@@ -1,0 +1,34 @@
+// ----------------------------------------------------------------------------
+// Base Variables
+// ----------------------------------------------------------------------------
+//
+// Stores all global variables for reference into individual components.
+//
+// ----------------------------------------------------------------------------
+
+// -------------------------------------
+//  Colours
+// -------------------------------------
+// If you are having trouble coming up with names, check out
+// http://www.color-blindness.com/color-name-hue/
+// -------------------------------------
+
+// Universal Colors
+$black: #000;
+$white: #fff;
+
+// Theme Colors
+
+// -------------------------------------
+//  Media Query Breakpoints
+// -------------------------------------
+$container--tablet: 680px !default;
+$container--laptop: 1024px !default;
+$container--desktop: 1280px !default;
+
+$site-width: 1440px !default;
+
+
+// Spacing
+
+$site-gutter: 20px;

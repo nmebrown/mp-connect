@@ -1,0 +1,67 @@
+// ----------------------------------------------------------------------------
+// Helpers
+// ----------------------------------------------------------------------------
+//
+// Classes to make small tasks easier
+//
+// ----------------------------------------------------------------------------
+
+.sr-only {
+    position: absolute !important;
+    left: -9999px !important;
+    top: -9999px !important;
+}
+
+.clearfix {
+    @include clearfix;
+}
+
+.visually-hidden {
+    @include visually-hidden;
+}
+
+.js-focus-hidden:focus {
+    outline: none;
+}
+
+.label-hidden {
+    @include visually-hidden;
+
+    // No placeholders, so force show labels
+    .no-placeholder & {
+        @include visually-shown;
+    }
+}
+
+.visually-shown {
+    @include visually-shown;
+}
+
+// Only show when JS is not supported
+.no-js:not(html) {
+    display: none;
+
+    .no-js & {
+        display: block;
+    }
+}
+
+// Only show when JS is supported
+.js {
+    .no-js & {
+        display: none;
+    }
+}
+
+
+
+//  Hide / Show
+// -------------------------------------
+.hide {
+    display: none !important;
+}
+
+.hidden,
+.js-partial {
+    display: none;
+}

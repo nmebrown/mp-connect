@@ -1,11 +1,12 @@
 @charset 'UTF-8';
 
 // Include Normalize.css to standardize default browser styles
-@import '~@csstools/normalize.css';
+@import "normalize/import-now";
 
-// // Tools
-// @import './tools/mixins';
-// @import './tools/functions';
+// Tools
+@import './tools/variables';
+@import './tools/mixins';
+@import './tools/helpers';
 
 // Core
 @import './core/grid';

@@ -34,6 +34,6 @@
     "node": "12.14.0"
   },
   "dependencies": {
-    "@csstools/normalize.css": "^11.0.1"
+    "normalize-scss": "^7.0.1"
   }
 }

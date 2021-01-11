@@ -1,0 +1,173 @@
+// ----------------------------------------------------------------------------
+// Mixins
+// ----------------------------------------------------------------------------
+//
+// SASS mixins to help extend common classes and functions easily.
+//
+// Included:
+// Clearfix
+// Media Queries
+// Typography
+// Utilities
+// - Aspect Ratio
+// - Visually Hidden
+//
+// ----------------------------------------------------------------------------
+
+// -------------------------------------
+// Clearfix
+// -------------------------------------
+// Forces an element to self-clear its
+// children.
+//
+// Usage:
+// .selector {
+//   @include clearfix;
+// }
+// -------------------------------------
+@mixin clearfix() {
+    &::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+
+    // stylelint-disable-next-line
+    *zoom: 1;
+}
+
+
+
+// -------------------------------------
+// Media Queries
+// -------------------------------------
+// Sets a media query for the specified
+// breakpoint.
+//
+// Accepts:
+// $media-query: {String} Breakpoint variable (list found in variables.scss)
+//
+// Usage:
+// .selector {
+//   @include media-query($medium-up) {
+//     color: red;
+//   }
+// }
+// -------------------------------------
+@mixin media-query($media-query) {
+    $breakpoint-found: false;
+
+    @each $breakpoint in $breakpoints {
+        $name: nth($breakpoint, 1);
+        $declaration: nth($breakpoint, 2);
+
+        @if $media-query == $name and $declaration {
+            $breakpoint-found: true;
+
+            @media only screen and #{$declaration} {
+                @content;
+            }
+        }
+    }
+}
+
+
+// Progressive Enhancement Breakpoints
+@mixin bp($point) {
+    $bp-mobile: '(min-width: 0)';
+    $bp-tablet: '(min-width: #{$container--tablet})';
+    $bp-laptop: '(min-width: #{$container--laptop})';
+    $bp-desktop: '(min-width: #{$container--desktop})';
+
+    @if $point == desktop {
+        @media #{$bp-desktop} { @content; }
+    }
+    @else if $point == laptop {
+        @media #{$bp-laptop} { @content; }
+    }
+    @else if $point == tablet {
+        @media #{$bp-tablet}  { @content; }
+    }
+    @else if $point == mobile {
+        @media #{$bp-mobile}  { @content; }
+    }
+}
+
+
+
+// -------------------------------------
+// Typography Mixins
+// -------------------------------------
+
+// Font Size/Line Height
+@mixin font-size($size) {
+    font-size: $size + px; // Fallback in px
+    font-size: calculate-rem($size);
+}
+
+@mixin line-height($size) {
+    line-height: $size + px; // Fallback in px
+    line-height: calculate-rem($size);
+}
+
+// Headings
+@mixin headings($from: 1, $to: 6) {
+    @for $i from $from through $to {
+        h#{$i} {
+            @content
+        }
+    }
+}
+
+
+@mixin ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
+// -------------------------------------
+// Utility Mixins
+// -------------------------------------
+
+// Visually hide text but leave for screen-readers
+@mixin visually-hidden() {
+    position: absolute !important;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0 0 0 0);
+}
+
+// Undoes the visually-hidden mixin
+@mixin visually-shown($position: inherit) {
+    position: $position !important;
+    overflow: auto;
+    width: auto;
+    height: auto;
+    margin: 0;
+    clip: auto;
+}
+
+// Image Aspect Ratio
+@mixin aspect-ratio($width, $height) {
+    &::before {
+        content: '';
+        float: left;
+        height: 0;
+        margin-left: -1px;
+        padding-top: $height / $width * 100%;
+        width: 1px;
+    }
+
+    &::after {
+        clear: both;
+        content: '';
+        display: table;
+    }
+}
