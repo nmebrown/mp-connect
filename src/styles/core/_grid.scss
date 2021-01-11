@@ -1,5 +1,57 @@
-// Layout file
+// Main Grid
+// -------------------------------------
+.site-layout {
+    display: block;
+    min-height: 100vh;
+    max-width: 100%; // for IE 11
+    width: 100%; // for IE 11
 
-body {
+    @supports (display:grid) {
+        display: grid;
+        grid-template-columns: [full-start] minmax((#{$site-gutter} / 2), 1fr) [main-start] minmax(0, #{$site-width}) [main-end] minmax((#{$site-gutter} / 2), 1fr) [full-end];
+        grid-template-rows: 1fr 2fr 1fr;
+        max-width: initial;
+        width: 100%;
+    }
 
+    @include bp(laptop) {
+        grid-template-columns: [full-start] minmax(#{$site-gutter}, 1fr) [main-start] minmax(0, #{$site-width}) [main-end] minmax(#{$site-gutter}, 1fr) [full-end];
+    }
+
+    // All content defaults to one column
+    > * {
+        grid-column: main;
+    }
+}
+
+
+// Container
+// -------------------------------------
+@mixin container {
+    margin: 0 auto;
+    max-width: $site-width;
+    padding: 0;
+    width: calc(100% - #{$site-gutter});
+}
+
+@mixin container--wysiwyg {
+    @include container;
+
+    @include bp(laptop) {
+        width: calc(60% - (#{$site-gutter} * 2));
+    }
+}
+
+.container {
+    @include container;
+}
+
+
+// Page section default styles
+.page-section {
+    padding: $site-gutter 0;
+
+    @include bp(laptop) {
+        padding: ($site-gutter * 2) 0;
+    }
 }
